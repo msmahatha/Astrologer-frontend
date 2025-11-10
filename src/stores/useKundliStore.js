@@ -3,7 +3,7 @@ import axios from "axios";
 
 // Base URL for backend requests. In development we'll prefer a relative path so Vite proxy (vite.config.js)
 // can forward /api requests to the real backend and avoid CORS. For production, set VITE_API_BASE_URL.
-const API_BASE = import.meta.env.VITE_API_BASE_URL || "https://demoastrobackend.onrender.com"; // example: "https://demoastrobackend.onrender.com"
+const API_BASE = import.meta.env.VITE_API_BASE_URL || "http://localhost:5000"; // example: "https://demoastrobackend.onrender.com"
 
 const useKundliStore = create((set) => ({
   kundli: null,
