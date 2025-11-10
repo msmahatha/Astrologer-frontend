@@ -8,7 +8,7 @@ export default function Footer() {
         {/* Logo & Brand */}
         <div className="flex flex-col items-center md:items-start">
           <img
-            src="./logo.png"
+            src="./logo.svg"
             alt="Astrology Wheel"
             className="w-20 mb-4"
           />

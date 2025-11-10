@@ -16,13 +16,19 @@ export default function Header() {
 
   return (
     <>
-      <nav className="relative flex items-center justify-between px-6 py-3 bg-gray-100 backdrop-blur-xl border border-black z-[100]">
+      <nav className="relative flex items-center justify-between px-6 py-3 bg-[#F9F9EF] -blur-xl border border-black z-[100]">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2">
-          <img
+          {/* <img
             src="/land6.jpeg"
             alt="logo"
             className="w-10 h-10 sm:w-14 sm:h-14 rounded-xl object-cover shadow-md"
+          /> */}
+
+          <img
+            src="./logo.png"
+            alt="logo"
+            className="w-10 h-10 sm:w-14 sm:h-14"
           />
         </Link>
 

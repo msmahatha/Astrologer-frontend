@@ -809,7 +809,7 @@ export default function KundliForm() {
 
       {/* Main Content */}
       <div
-        className="min-h-screen flex items-center justify-center md:justify-end p-4 sm:p-6 bg-gray-50 relative"
+        className="min-h-screen flex items-center justify-center md:justify-end p-4 sm:p-6 bg-[#F9F9EF] relative"
         style={{
           backgroundImage: "url('./Wheel2-1.png')",
           backgroundSize: "auto 100vh",
