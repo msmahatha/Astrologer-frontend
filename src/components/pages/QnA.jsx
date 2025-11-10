@@ -536,6 +536,11 @@ const CATEGORIES = [
   "Legal",
 ];
 
+// Use absolute URL for production, relative for development
+const API_BASE_URL = window.location.hostname === 'localhost' 
+  ? 'http://localhost:5000/api' 
+  : 'https://your-backend-domain.com/api'; // Replace with your actual backend domain
+
 const QNA = () => {
   const { fetchChats, chats, sendMessage } = useAIStore();
   const [userInfo, setUserInfo] = useState({
@@ -557,8 +562,6 @@ const QNA = () => {
   const chatEndRef = useRef(null);
   const dropdownRef = useRef(null);
   const searchTimeoutRef = useRef(null);
-
-  const GOOGLE_API_KEY = "AIzaSyAoBl7NNCqtw_7g9K7bWrPq1m3ZI6P2_g8";
 
   useEffect(() => {
     fetchChats();
@@ -582,7 +585,7 @@ const QNA = () => {
     };
   }, []);
 
-  // Fetch locations from Google Places API when search query changes
+  // Fetch locations from Google Places API via Node.js proxy
   useEffect(() => {
     if (searchQuery.length < 2) {
       setFilteredLocations([]);
@@ -596,23 +599,31 @@ const QNA = () => {
     searchTimeoutRef.current = setTimeout(async () => {
       setIsSearching(true);
       try {
-        const response = await fetch(
-          `https://maps.googleapis.com/maps/api/place/autocomplete/json?input=${encodeURIComponent(
-            searchQuery
-          )}&key=${GOOGLE_API_KEY}&types=geocode`
-        );
+        const response = await fetch(`${API_BASE_URL}/places-autocomplete`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ input: searchQuery })
+        });
+        
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
         
         const data = await response.json();
         
-        if (data.status === "OK") {
+        if (data.status === 'OK' && data.predictions) {
           const locations = data.predictions.map(prediction => prediction.description);
           setFilteredLocations(locations);
         } else {
           setFilteredLocations([]);
+          console.log('API returned no results:', data.status);
         }
       } catch (error) {
         console.error("Error fetching locations:", error);
         setFilteredLocations([]);
+        setLocationError("Failed to fetch locations. Please try again.");
       } finally {
         setIsSearching(false);
       }
@@ -625,7 +636,7 @@ const QNA = () => {
     };
   }, [searchQuery]);
 
-  // Function to get current location using Google Maps Geocoding API
+  // Function to get current location using Node.js proxy
   const getCurrentLocation = () => {
     if (!navigator.geolocation) {
       setLocationError("Geolocation is not supported by this browser.");
@@ -640,14 +651,22 @@ const QNA = () => {
         try {
           const { latitude, longitude } = position.coords;
           
-          // Using Google Maps Geocoding API to get address from coordinates
-          const response = await fetch(
-            `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=${GOOGLE_API_KEY}`
-          );
+          // Use Node.js proxy for reverse geocoding
+          const response = await fetch(`${API_BASE_URL}/reverse-geocode`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ latitude, longitude })
+          });
+          
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
           
           const data = await response.json();
           
-          if (data.status === "OK" && data.results.length > 0) {
+          if (data.status === 'OK' && data.results && data.results.length > 0) {
             const address = data.results[0].formatted_address;
             setUserInfo(prev => ({
               ...prev,
@@ -835,7 +854,7 @@ const QNA = () => {
                           <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
                           <input
                             type="text"
-                            placeholder="Search locations..."
+                            placeholder="Type 2+ letters to search real locations..."
                             value={searchQuery}
                             onChange={handleSearchChange}
                             className="w-full pl-10 pr-4 py-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-amber-400"
@@ -849,7 +868,7 @@ const QNA = () => {
                         {isSearching ? (
                           <div className="px-4 py-3 text-center text-gray-500">
                             <Loader2 className="w-4 h-4 animate-spin inline mr-2" />
-                            Searching...
+                            Searching real locations...
                           </div>
                         ) : filteredLocations.length > 0 ? (
                           filteredLocations.map((location) => (
@@ -868,7 +887,7 @@ const QNA = () => {
                           </div>
                         ) : (
                           <div className="px-4 py-3 text-center text-gray-500">
-                            Start typing to search locations
+                            Start typing to search real locations from Google Maps
                           </div>
                         )}
                       </div>
@@ -921,15 +940,12 @@ const QNA = () => {
             <div className="bg-white rounded-2xl shadow-lg border border-amber-100 p-4 mb-4 h-[65vh] overflow-y-auto">
               {chats.length > 0 ? (
                 chats.map((chat, idx) => {
-                  // If the backend stored the whole user context (User Info: ... User Question: ...)
-                  // extract only the actual user question text to avoid showing personal info in UI.
                   const isUser = Boolean(chat?.question);
                   let displayQuestion = "";
                   if (isUser && typeof chat.question === "string") {
                     if (chat.question.includes("User Question:")) {
                       displayQuestion = chat.question.split("User Question:").pop().trim();
                     } else {
-                      // Fallback: try to remove the 'User Info:' prefix if present
                       displayQuestion = chat.question.replace(/User Info:\s*.*$/s, "").trim() || chat.question;
                     }
                   }
