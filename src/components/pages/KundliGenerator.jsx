@@ -1022,8 +1022,8 @@ export default function KundliForm() {
 
   // Base URL for your Node.js backend
   const API_BASE_URL = window.location.hostname === 'localhost' 
-    ? 'http://localhost:5000/api' 
-    : 'https://demoastrobackend.onrender.com/api'; // Replace with your actual backend domain
+    ? 'https://demoastrobackend.onrender.com/api' 
+    : 'https://localhost:5000/api'; // Replace with your actual backend domain
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -1151,7 +1151,7 @@ export default function KundliForm() {
             setLocationError("Location request timed out.");
             break;
           default:
-            setLocationError("An unknown error occurred.");
+            // setLocationError("An unknown error occurred.");
             break;
         }
       },

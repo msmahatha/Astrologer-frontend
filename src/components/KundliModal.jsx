@@ -40,7 +40,7 @@ const KundliModal = ({ isOpen = true, onClose = () => {}, data , loading }) => {
               src="/astro-logo.png"
               alt="Astro AI"
               className="w-12 h-12 rounded-full border border-amber-200 object-cover"
-              onError={(e) => (e.target.src = "https://cdn-icons-png.flaticon.com/512/616/616408.png")}
+              onError={(e) => (e.target.src = "./ailogo.png")}
             />
             <div>
               <h3 className="text-lg font-semibold text-gray-800">{kundli.name}</h3>

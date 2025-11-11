@@ -538,7 +538,7 @@
 
 // // // // Use absolute URL for production, relative for development
 // // // const API_BASE_URL = window.location.hostname === 'localhost' 
-// // //   ? 'http://localhost:5000/api' 
+// // //   ? 'https://demoastrobackend.onrender.comapi' 
 // // //   : 'https://demoastrobackend.onrender.com/api'; // Replace with your actual backend domain
 
 // // // const QNA = () => {
@@ -1066,7 +1066,7 @@
 
 // // // Use absolute URL for production, relative for development
 // // const API_BASE_URL = window.location.hostname === 'localhost' 
-// //   ? 'http://localhost:5000/api' 
+// //   ? 'https://demoastrobackend.onrender.comapi' 
 // //   : 'https://demoastrobackend.onrender.com/api';
 
 // // const QNA = () => {
@@ -1734,7 +1734,7 @@
 
 // // Use absolute URL for production, relative for development
 // const API_BASE_URL = window.location.hostname === 'localhost' 
-//   ? 'http://localhost:5000/api' 
+//   ? 'https://demoastrobackend.onrender.comapi' 
 //   : 'https://demoastrobackend.onrender.com/api';
 
 // const QNA = () => {
@@ -2409,8 +2409,8 @@ const DAYS = Array.from({ length: 31 }, (_, i) => (i + 1).toString().padStart(2,
 
 // Use absolute URL for production, relative for development
 const API_BASE_URL = window.location.hostname === 'localhost' 
-  ? 'http://localhost:5000/api' 
-  : 'https://demoastrobackend.onrender.com/api';
+  ? 'https://demoastrobackend.onrender.com/api' 
+  : 'http://localhost:5000/api';
 
 const QNA = () => {
   const { fetchChats, chats, sendMessage } = useAIStore();
@@ -2602,7 +2602,7 @@ const QNA = () => {
             setLocationError("Location request timed out.");
             break;
           default:
-            setLocationError("An unknown error occurred.");
+            // setLocationError("An unknown error occurred.");
             break;
         }
       },

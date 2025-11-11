@@ -69,7 +69,7 @@
 
 import { create } from 'zustand';
 
-const API_BASE = 'https://demoastrobackend.onrender.com';
+const API_BASE = 'https://demoastrobackend.onrender.com'; // Change to your backend URL
 
 const useAIStore = create((set, get) => ({
   chats: [],
