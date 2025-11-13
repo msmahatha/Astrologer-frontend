@@ -2410,7 +2410,7 @@ const DAYS = Array.from({ length: 31 }, (_, i) => (i + 1).toString().padStart(2,
 // Use absolute URL for production, relative for development
 const API_BASE_URL = window.location.hostname === 'localhost' 
   ? 'https://demoastrobackend.onrender.com/api' 
-  : 'http://localhost:5000/api';
+  : 'https://demoastrobackend.onrender.com/api';
 
 const QNA = () => {
   const { fetchChats, chats, sendMessage } = useAIStore();
