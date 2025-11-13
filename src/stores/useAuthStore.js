@@ -23,7 +23,7 @@ const useAuthStore = create((set) => ({
 checkAuth: async () => {
   try {
     console.log("Starting auth check...");
-    const response = await fetch(`http://localhost:5000/api/auth/get-user`, {
+    const response = await fetch(`https://demoastrobackend.onrender.com/api/auth/get-user`, {
       method: 'GET',
       credentials: 'include',
       headers: {
