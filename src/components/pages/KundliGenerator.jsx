@@ -1902,108 +1902,141 @@ export default function KundliForm() {
             </div>
 
             {/* Location with Dropdown and Location Detection */}
-            <div className="mb-4">
-              <div className="flex items-center justify-between mb-2">
-                <label className="text-sm font-medium text-gray-700 flex items-center">
-                  <MapPin className="w-4 h-4 mr-1" />
-                  Birth Place
-                </label>
-                <button
-                  type="button"
-                  onClick={getCurrentLocation}
-                  disabled={isGettingLocation}
-                  className="flex items-center gap-1 text-xs bg-amber-100 text-amber-700 px-3 py-1 rounded-lg hover:bg-amber-200 transition disabled:opacity-50"
-                >
-                  {isGettingLocation ? (
-                    <Loader2 className="w-3 h-3 animate-spin" />
-                  ) : (
-                    <Navigation className="w-3 h-3" />
-                  )}
-                  Get Current Location
-                </button>
+            <div className="flex flex-col space-y-4">
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+    
+    {/* Selected Location (Birth Place) */}
+    <div className="space-y-2 pt-0.5">
+      <div className="flex items-center gap-2 flex-wrap">
+        <label className="text-sm font-medium text-gray-700">
+          Select Birth Place 
+        </label>
+      </div>
+      
+      <div className="relative" ref={dropdownRef}>
+        <button
+          type="button"
+          onClick={handleDropdownToggle}
+          className="w-full flex items-center justify-between p-3 border border-yellow-400 rounded-md focus:ring-amber-400 bg-white text-left"
+        >
+          <span className={formData.place ? "text-gray-800" : "text-gray-500"}>
+            {formData.place || "Select your birth place"}
+          </span>
+          <ChevronDown className={`w-4 h-4 transition-transform ${isLocationDropdownOpen ? 'rotate-180' : ''}`} />
+        </button>
+        
+        {isLocationDropdownOpen && (
+          <div className="absolute z-10 w-full mt-1 bg-white border border-gray-200 rounded-md shadow-lg max-h-60 overflow-hidden">
+            {/* Search Input */}
+            <div className="p-2 border-b">
+              <div className="relative">
+                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
+                <input
+                  type="text"
+                  placeholder="Type 2+ letters to search real locations..."
+                  value={searchQuery}
+                  onChange={handleSearchChange}
+                  className="w-full pl-10 pr-4 py-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-amber-400"
+                  onClick={(e) => e.stopPropagation()}
+                />
               </div>
-
-              <div className="relative" ref={dropdownRef}>
-                <button
-                  type="button"
-                  onClick={handleDropdownToggle}
-                  className="w-full flex items-center justify-between p-3 border border-yellow-400 rounded-md bg-white text-left"
-                >
-                  <span className={formData.place ? "text-gray-800" : "text-gray-500"}>
-                    {formData.place || "Select your birth place"}
-                  </span>
-                  <ChevronDown className={`w-4 h-4 transition-transform ${isLocationDropdownOpen ? 'rotate-180' : ''}`} />
-                </button>
-                
-                {isLocationDropdownOpen && (
-                  <div className="absolute z-10 w-full mt-1 bg-white border border-gray-200 rounded-md shadow-lg max-h-60 overflow-hidden">
-                    {/* Search Input */}
-                    <div className="p-2 border-b">
-                      <div className="relative">
-                        <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
-                        <input
-                          type="text"
-                          placeholder="Type 2+ letters to search real locations..."
-                          value={searchQuery}
-                          onChange={handleSearchChange}
-                          className="w-full pl-10 pr-4 py-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-amber-400"
-                          onClick={(e) => e.stopPropagation()}
-                        />
-                      </div>
-                    </div>
-                    
-                    {/* Locations List */}
-                    <div className="max-h-48 overflow-y-auto">
-                      {isSearching ? (
-                        <div className="px-4 py-3 text-center text-gray-500">
-                          <Loader2 className="w-4 h-4 animate-spin inline mr-2" />
-                          Searching real locations...
-                        </div>
-                      ) : filteredLocations.length > 0 ? (
-                        filteredLocations.map((location) => (
-                          <button
-                            key={location}
-                            type="button"
-                            onClick={() => handleLocationSelect(location)}
-                            className="w-full px-4 py-2 text-left hover:bg-amber-50 focus:bg-amber-50 focus:outline-none border-b border-gray-100 last:border-b-0"
-                          >
-                            {location}
-                          </button>
-                        ))
-                      ) : searchQuery.length > 0 ? (
-                        <div className="px-4 py-3 text-center text-gray-500">
-                          {searchQuery.length < 2 ? "Type at least 2 characters" : "No locations found"}
-                        </div>
-                      ) : (
-                        <div className="px-4 py-3 text-center text-gray-500">
-                          Start typing to search real locations from Google Maps
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                )}
-              </div>
-
-              {/* Location Status Messages */}
-              {locationError && (
-                <p className="text-red-500 text-sm mt-2 flex items-center gap-1">
-                  <MapPin className="w-4 h-4" />
-                  {locationError}
-                </p>
-              )}
-              
-              {formData.place && !locationError && (
-                <p className="text-green-600 text-sm mt-2 flex items-center gap-1">
-                  <MapPin className="w-4 h-4" />
-                  Location selected: {formData.place}
-                </p>
-              )}
-              {formData.latitude && formData.longitude && (
-                <p className="text-gray-700 text-sm mt-1">
-                  Coordinates: {Number(formData.latitude).toFixed(5)}, {Number(formData.longitude).toFixed(5)}
-                </p>
+            </div>
+            
+            {/* Locations List */}
+            <div className="max-h-48 overflow-y-auto">
+              {isSearching ? (
+                <div className="px-4 py-3 text-center text-gray-500">
+                  <Loader2 className="w-4 h-4 animate-spin inline mr-2" />
+                  Searching real locations...
+                </div>
+              ) : filteredLocations.length > 0 ? (
+                filteredLocations.map((location) => (
+                  <button
+                    key={location}
+                    type="button"
+                    onClick={() => handleLocationSelect(location)}
+                    className="w-full px-4 py-2 text-left hover:bg-amber-50 focus:bg-amber-50 focus:outline-none border-b border-gray-100 last:border-b-0"
+                  >
+                    {location}
+                  </button>
+                ))
+              ) : searchQuery.length > 0 ? (
+                <div className="px-4 py-3 text-center text-gray-500">
+                  {searchQuery.length < 2 ? "Type at least 2 characters" : "No locations found"}
+                </div>
+              ) : (
+                <div className="px-4 py-3 text-center text-gray-500">
+                  Start typing to search real locations from Google Maps
+                </div>
               )}
             </div>
+          </div>
+        )}
+      </div>
+      
+      {formData.place && !locationError && (
+        <p className="text-green-600 text-sm flex items-center gap-1">
+          <MapPin className="w-4 h-4" />
+          Birth place selected: {formData.place}
+        </p>
+      )}
+    </div>
+
+    {/* Current Location */}
+    <div className="space-y-2 pb-10">
+      <div className="flex items-center gap-2 flex-wrap">
+        <label className="text-sm font-medium text-gray-700">
+          Current Location 
+        </label>
+        <div className="flex gap-2">
+          <button
+            type="button"
+            onClick={getCurrentLocation}
+            disabled={isGettingLocation}
+            className="flex items-center gap-1 text-xs bg-amber-100 text-amber-700 px-2 py-1 rounded hover:bg-amber-200 transition disabled:opacity-50"
+          >
+            {isGettingLocation ? (
+              <Loader2 className="w-3 h-3 animate-spin" />
+            ) : (
+              <Navigation className="w-3 h-3" />
+            )}
+            Fetch Current Location
+          </button>
+        </div>
+      </div>
+
+      <div className="relative">
+        <input
+          type="text"
+          value={
+            formData.latitude && formData.longitude
+              ? `${Number(formData.latitude).toFixed(5)}, ${Number(formData.longitude).toFixed(5)}`
+              : ""
+          }
+          readOnly
+          placeholder="Your current location coordinates will appear here"
+          className="w-full p-3 border border-[#fadb69] rounded-md bg-gray-50 text-gray-800 focus:outline-none focus:ring-2 focus:ring-amber-400"
+        />
+      </div>
+
+      {locationError && (
+        <p className="text-red-500 text-sm flex items-center gap-1">
+          <MapPin className="w-4 h-4" />
+          {locationError}
+        </p>
+      )}
+
+      {formData.latitude && formData.longitude && !locationError && (
+        <p className="text-green-600 text-sm flex items-center gap-1">
+          <MapPin className="w-4 h-4" />
+          Current location fetched successfully!
+        </p>
+      )}
+    </div>
+
+  </div>
+</div>
+
 
             {/* Gender Selection */}
             <div className="flex items-center justify-center gap-3 mb-6 flex-wrap">

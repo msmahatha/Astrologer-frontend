@@ -8,8 +8,7 @@ import Remedies from "./../components/pages/Remedies";
 import CompleteProfilePage from "../components/pages/Auth/CompleteProfilePage";
 import ProtectedRoute from "../components/pages/Auth/ProtectedRoute";
 import AuthInitializer from "../components/pages/Auth/AuthInitializer";
-
-
+import AboutUs from "../components/pages/aboutus";
 
 export default function AppRoutes() {
   return (
@@ -19,7 +18,10 @@ export default function AppRoutes() {
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
+        <Route >
+        <Route path="/about_us" element={<AboutUs/>}/>
 
+        </Route>
         <Route path="/" element={
           <ProtectedRoute>
           <LandingPage />

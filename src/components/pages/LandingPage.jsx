@@ -318,7 +318,7 @@ export default function LandingPage() {
             <div className="space-y-10 relative md:mt-24">
               {/* Aries */}
               <div className="flex flex-col sm:flex-row items-center sm:items-start sm:space-x-6 space-y-4 sm:space-y-0">
-                <img src="land13.jpeg" alt="Aries Zodiac Sign" className="h-40 w-40 object-cover" />
+                <img src="land13.svg" alt="Aries Zodiac Sign" className="h-40 w-40 object-cover" />
                 <div className="text-center md:text-left">
                   <h3 className="text-xl font-bold text-amber-700">Aries</h3>
                   <p className="text-sm text-gray-600 leading-relaxed">
@@ -329,7 +329,7 @@ export default function LandingPage() {
 
               {/* Taurus */}
               <div className="flex flex-col sm:flex-row items-center sm:items-start sm:space-x-6 space-y-4 sm:space-y-0">
-                <img src="land11.jpeg" alt="Taurus Zodiac Sign" className="h-40 w-40 object-cover" />
+                <img src="land11.svg" alt="Taurus Zodiac Sign" className="h-40 w-40 object-cover" />
                 <div className="text-center md:text-left">
                   <h3 className="text-xl font-bold text-amber-700">Taurus</h3>
                   <p className="text-sm text-gray-600 leading-relaxed">
@@ -340,7 +340,7 @@ export default function LandingPage() {
 
               {/* Gemini */}
               <div className="flex flex-col sm:flex-row items-center sm:items-start sm:space-x-6 space-y-4 sm:space-y-0">
-                <img src="land9.jpeg" alt="Gemini Zodiac Sign" className="h-40 w-40 object-cover" />
+                <img src="land9.svg" alt="Gemini Zodiac Sign" className="h-40 w-40 object-cover" />
                 <div className="text-center md:text-left">
                   <h3 className="text-xl font-bold text-amber-700">Gemini</h3>
                   <p className="text-sm text-gray-600 leading-relaxed">
@@ -353,8 +353,8 @@ export default function LandingPage() {
             {/* Right Column */}
             <div className="space-y-10">
               {/* Cancer */}
-              <div className="flex flex-col sm:flex-row items-center sm:items-start sm:space-x-6 space-y-4 sm:space-y-0">
-                <img src="land7.jpeg" alt="Cancer Zodiac Sign" className="h-40 w-40 object-cover" />
+              <div className="flex flex-col sm:flex-row items-center sm:items-start sm:space-x-6 space-y-4 sm:space-y-0 pt-24">
+                <img src="land7.svg" alt="Cancer Zodiac Sign" className="h-40 w-40 object-cover" />
                 <div className="text-center md:text-left">
                   <h3 className="text-xl font-bold text-amber-700">Cancer</h3>
                   <p className="text-sm text-gray-600 leading-relaxed">
@@ -365,7 +365,7 @@ export default function LandingPage() {
 
               {/* Leo */}
               <div className="flex flex-col sm:flex-row items-center sm:items-start sm:space-x-6 space-y-4 sm:space-y-0">
-                <img src="land4.jpeg" alt="Leo Zodiac Sign" className="h-40 w-40 object-cover" />
+                <img src="land4.svg" alt="Leo Zodiac Sign" className="h-40 w-40 object-cover" />
                 <div className="text-center md:text-left">
                   <h3 className="text-xl font-bold text-amber-700">Leo</h3>
                   <p className="text-sm text-gray-600 leading-relaxed">
@@ -376,7 +376,7 @@ export default function LandingPage() {
 
               {/* Virgo */}
               <div className="flex flex-col sm:flex-row items-center sm:items-start sm:space-x-6 space-y-4 sm:space-y-0">
-                <img src="land8.jpeg" alt="Virgo Zodiac Sign" className="h-40 w-40 object-cover" />
+                <img src="land8.svg" alt="Virgo Zodiac Sign" className="h-40 w-40 object-cover" />
                 <div className="text-center md:text-left">
                   <h3 className="text-xl font-bold text-amber-700">Virgo</h3>
                   <p className="text-sm text-gray-600 leading-relaxed">

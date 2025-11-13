@@ -1,0 +1,185 @@
+import React from 'react';
+import Header from '../layout/Header';
+import Footer from '../layout/Footer';
+const AboutUs = () => {
+  return (
+    <>
+    <Header/>
+    <div className="min-h-screen bg-[#F9F9EF] py-12 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-4xl mx-auto">
+        {/* Header Section */}
+        <div className="text-center mb-16">
+          <h1 className="text-4xl md:text-5xl font-bold text-purple-900 mb-4">
+            About Astrolozee
+          </h1>
+          <p className="text-xl text-gray-700 max-w-3xl mx-auto">
+            Revolutionizing astrology with AI-powered Vedic wisdom for personalized cosmic guidance
+          </p>
+        </div>
+
+        {/* Main Content */}
+        <div className="bg-white rounded-2xl shadow-lg p-8 mb-12">
+          {/* Introduction */}
+          <div className="mb-12">
+            <h2 className="text-3xl font-semibold text-purple-800 mb-6">
+              Beyond Ordinary Horoscope Apps
+            </h2>
+            <p className="text-lg text-gray-700 leading-relaxed mb-6">
+              Astrolozee is an advanced AI astrology platform that transcends traditional horoscope applications. 
+              We harness cutting-edge artificial intelligence technology, meticulously trained in Vedic astrology, 
+              to analyze your kundli (birth chart), planetary positions, and nakshatras with unprecedented detail and speed.
+            </p>
+          </div>
+
+          {/* Karmic GPS Method */}
+          <div className="mb-12">
+            <h2 className="text-3xl font-semibold text-purple-800 mb-6">
+              Our Unique Karmic GPS Method
+            </h2>
+            <p className="text-lg text-gray-700 mb-8">
+              This exclusive methodology provides you with precise cosmic navigation through:
+            </p>
+            
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {/* Life Phase Card */}
+              <div className="bg-purple-50 rounded-xl p-6 border-l-4 border-purple-500">
+                <h3 className="text-xl font-semibold text-purple-800 mb-3">Your Life Phase</h3>
+                <p className="text-gray-700">
+                  Identify whether you're in a <span className="font-medium">pause, battle, cleansing, or final</span> phase of your journey
+                </p>
+              </div>
+
+              {/* Current Environment Card */}
+              <div className="bg-blue-50 rounded-xl p-6 border-l-4 border-blue-500">
+                <h3 className="text-xl font-semibold text-blue-800 mb-3">Current Environment</h3>
+                <p className="text-gray-700">
+                  Understand your surroundings: <span className="font-medium">city zone, home type, and lifestyle energy</span>
+                </p>
+              </div>
+
+              {/* Next Shift Card */}
+              <div className="bg-green-50 rounded-xl p-6 border-l-4 border-green-500">
+                <h3 className="text-xl font-semibold text-green-800 mb-3">Next Shift</h3>
+                <p className="text-gray-700">
+                  Prepare for upcoming changes: <span className="font-medium">timing, direction, and type of place</span>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Differentiation */}
+          <div className="bg-yellow-50 border border-yellow-200 rounded-xl p-6 mb-8">
+            <h3 className="text-xl font-semibold text-yellow-800 mb-3">
+              What Makes Us Different
+            </h3>
+            <p className="text-gray-700">
+              Unlike generic astrology apps that provide identical predictions to everyone, 
+              Astrolozee delivers truly personalized insights based on your unique astrological blueprint.
+            </p>
+          </div>
+        </div>
+
+        {/* Why Choose Astrolozee Section */}
+        <div className="bg-white rounded-2xl shadow-lg p-8">
+          <h2 className="text-3xl font-semibold text-purple-800 text-center mb-12">
+            Why Choose Astrolozee?
+          </h2>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* Feature 1 */}
+            <div className="text-center">
+              <div className="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-2xl">🤖</span>
+              </div>
+              <h3 className="text-xl font-semibold text-purple-800 mb-3">
+                AI + Vedic Astrology
+              </h3>
+              <p className="text-gray-700">
+                Modern technology seamlessly integrated with ancient wisdom for accurate insights
+              </p>
+            </div>
+
+            {/* Feature 2 */}
+            <div className="text-center">
+              <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-2xl">⭐</span>
+              </div>
+              <h3 className="text-xl font-semibold text-blue-800 mb-3">
+                Personalized Predictions
+              </h3>
+              <p className="text-gray-700">
+                Tailored guidance based on your unique kundli, not generic copy-paste horoscopes
+              </p>
+            </div>
+
+            {/* Feature 3 */}
+            <div className="text-center">
+              <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-2xl">🧭</span>
+              </div>
+              <h3 className="text-xl font-semibold text-green-800 mb-3">
+                Karmic GPS Reading
+              </h3>
+              <p className="text-gray-700">
+                Exclusive feature available only at Astrolozee for precise life navigation
+              </p>
+            </div>
+
+            {/* Feature 4 */}
+            <div className="text-center">
+              <div className="bg-red-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-2xl">💎</span>
+              </div>
+              <h3 className="text-xl font-semibold text-red-800 mb-3">
+                Accurate Remedies
+              </h3>
+              <p className="text-gray-700">
+                Get personalized Rudraksha, gemstones, and mantras specifically for your chart
+              </p>
+            </div>
+
+            {/* Feature 5 */}
+            <div className="text-center">
+              <div className="bg-orange-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-2xl">⚡</span>
+              </div>
+              <h3 className="text-xl font-semibold text-orange-800 mb-3">
+                Fast & Reliable
+              </h3>
+              <p className="text-gray-700">
+                Instant AI-powered reports with deep, meaningful insights delivered promptly
+              </p>
+            </div>
+
+            {/* Feature 6 - Additional */}
+            <div className="text-center">
+              <div className="bg-indigo-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-2xl">🔮</span>
+              </div>
+              <h3 className="text-xl font-semibold text-indigo-800 mb-3">
+                Deep Insights
+              </h3>
+              <p className="text-gray-700">
+                Comprehensive analysis of planets and nakshatras for complete astrological understanding
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* CTA Section */}
+        <div className="text-center mt-12">
+          <button className="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-8 rounded-full transition duration-300 transform hover:scale-105">
+            Discover Your Cosmic Path
+          </button>
+          <p className="text-gray-600 mt-4">
+            Join thousands who have found clarity and direction through Astrolozee
+          </p>
+        </div>
+      </div>
+    </div>
+    <Footer/>
+    </>
+  );
+};
+
+export default AboutUs;
