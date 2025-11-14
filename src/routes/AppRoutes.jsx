@@ -8,7 +8,7 @@ import Remedies from "./../components/pages/Remedies";
 import CompleteProfilePage from "../components/pages/Auth/CompleteProfilePage";
 import ProtectedRoute from "../components/pages/Auth/ProtectedRoute";
 import AuthInitializer from "../components/pages/Auth/AuthInitializer";
-import AboutUs from "../components/pages/aboutus";
+import AboutUs from "../components/pages/Aboutus";
 
 export default function AppRoutes() {
   return (
