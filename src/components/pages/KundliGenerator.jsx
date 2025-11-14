@@ -1022,8 +1022,8 @@
 
 //   // Base URL for your Node.js backend
 //   const API_BASE_URL = window.location.hostname === 'localhost' 
-//     ? 'https://demoastrobackend.onrender.com/api' 
-//     : 'https://demoastrobackend.onrender.com/api'; // Replace with your actual backend domain
+//     ? 'http://localhost:5000/api' 
+//     : 'http://localhost:5000/api'; // Replace with your actual backend domain
 
 //   // Close dropdown when clicking outside
 //   useEffect(() => {
