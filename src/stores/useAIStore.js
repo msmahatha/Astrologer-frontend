@@ -163,8 +163,8 @@ const useAIStore = create((set, get) => ({
         || (payload?.message || '')
         || '';
 
-      const finalAnswer = `${assistantAnswer}\n\nRemedy: ${payload?.remedy || ''}`;
-
+      // const finalAnswer = `${assistantAnswer}\n\nRemedy: ${payload?.remedy || ''}`;
+ const finalAnswer = `${assistantAnswer}`;
       // replace last optimistic user message by keeping it and appending assistant answer
       set(state => ({ chats: [...state.chats.slice(0, -1), { question: bodyQuestion, answer: finalAnswer }], isLoading: false }));
 
