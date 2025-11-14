@@ -2920,14 +2920,11 @@ const handleQuestionSubmit = async () => {
           );
         })}
         
-        {/* Show user info and question when loading */}
+       
         {showUserInfo && <UserInfoDisplay />}
         
-        {/* Show typing effect when loading */}
-        {showTypingEffect && <TypingIndicator />}
-        
-        {/* Show intro message */}
         {introMessage && <IntroMessageDisplay />}
+        {showTypingEffect && <TypingIndicator />}
       </>
     ) : (
       <p className="text-gray-600 text-center mt-24">
