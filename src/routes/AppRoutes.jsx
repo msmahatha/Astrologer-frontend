@@ -12,6 +12,10 @@ import AboutUs from "../components/pages/Aboutus";
 import Services from "../components/pages/services";
 import ContactUs from "../components/pages/Contact_us";
 import PrivacyPolicy from "../components/pages/PrivacyPolicy";
+import Privacy from "../components/pages/Privacy";
+import Cookies from '../components/pages/cookies';
+import Help from "../components/pages/Help";
+import Supportervices from '../components/pages/support_services';
 export default function AppRoutes() {
   return (
     <BrowserRouter>
@@ -25,6 +29,10 @@ export default function AppRoutes() {
         <Route path="/service" element={<Services/>}/>
         <Route path="/contact" element={<ContactUs/>}/>
         <Route path="/terms" element={<PrivacyPolicy/>}/>
+        <Route path="/privacy" element={<Privacy/>}/>
+        <Route path="/cookies" element={<Cookies/>}/>
+        <Route path="/help" element={<Help/>}/>
+        <Route path="/support" element={<Supportervices/>}/>
         </Route>
         <Route path="/" element={
           <ProtectedRoute>

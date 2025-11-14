@@ -49,7 +49,8 @@ const ContactUs = () => {
               Contact Us
             </h1>
             <p className="text-gray-600 text-sm sm:text-base max-w-3xl mx-auto px-4">
-              Get in touch with our astrological experts for personalized guidance and support
+              We're Here to Help You 💬<br />
+              Need help with your personalized astrology report or have questions about your kundli reading? Our support team is ready to assist you.
             </p>
           </div>
 
@@ -59,7 +60,7 @@ const ContactUs = () => {
               
               {/* Contact Information */}
               <div className="space-y-8">
-                <div className=" rounded-lg p-8 border border-black">
+                <div className="rounded-lg p-8 border border-black">
                   <h2 className="text-2xl font-semibold text-gray-800 mb-6">
                     Get in Touch
                   </h2>
@@ -75,7 +76,6 @@ const ContactUs = () => {
                         <h3 className="text-lg font-semibold text-gray-800 mb-1">
                           Email Us
                         </h3>
-                        <p className="text-gray-600">support@astrolozee.com</p>
                         <p className="text-gray-600">info@astrolozee.com</p>
                       </div>
                     </div>
@@ -87,10 +87,9 @@ const ContactUs = () => {
                       </div>
                       <div>
                         <h3 className="text-lg font-semibold text-gray-800 mb-1">
-                          Call Us
+                          Call / WhatsApp
                         </h3>
-                        <p className="text-gray-600">+1 (555) 123-4567</p>
-                        <p className="text-gray-600">+1 (555) 987-6543</p>
+                        <p className="text-gray-600">+91-79826 98147</p>
                       </div>
                     </div>
 
@@ -101,12 +100,11 @@ const ContactUs = () => {
                       </div>
                       <div>
                         <h3 className="text-lg font-semibold text-gray-800 mb-1">
-                          Visit Us
+                          Our Location
                         </h3>
                         <p className="text-gray-600">
-                          123 Astrology Lane<br />
-                          Cosmic City, CC 12345<br />
-                          United States
+                          Astrolozee<br />
+                          Delhi, India
                         </p>
                       </div>
                     </div>
@@ -118,11 +116,11 @@ const ContactUs = () => {
                       </div>
                       <div>
                         <h3 className="text-lg font-semibold text-gray-800 mb-1">
-                          Business Hours
+                          Support Hours
                         </h3>
                         <p className="text-gray-600">
-                          Monday - Friday: 9:00 AM - 8:00 PM<br />
-                          Saturday - Sunday: 10:00 AM - 6:00 PM
+                          Monday to Saturday<br />
+                          10:00 AM – 6:00 PM (IST)
                         </p>
                       </div>
                     </div>
@@ -130,7 +128,7 @@ const ContactUs = () => {
                 </div>
 
                 {/* Quick Support */}
-                <div className="bg-amber-50 border border-black rounded-lg  p-6">
+                <div className="bg-amber-50 border border-black rounded-lg p-6">
                   <h3 className="text-xl font-semibold text-amber-800 mb-3">
                     Need Immediate Astrological Guidance?
                   </h3>
@@ -139,7 +137,7 @@ const ContactUs = () => {
                   </p>
                   <button 
                     onClick={() => navigate("/qna")}
-                    className="bg-amber-600 hover:bg-amber-700 text-white font-semibold py-3 px-6 rounded-full  transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
+                    className="bg-amber-600 hover:bg-amber-700 text-white font-semibold py-3 px-6 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
                   >
                     Chat with AI Astrologer
                   </button>
@@ -147,7 +145,7 @@ const ContactUs = () => {
               </div>
 
               {/* Contact Form */}
-              <div className=" p-8 border rounded-lg border-black">
+              <div className="p-8 border rounded-lg border-black">
                 <h2 className="text-2xl font-semibold text-gray-800 mb-6">
                   Send us a Message
                 </h2>
@@ -242,7 +240,7 @@ const ContactUs = () => {
           </div>
 
           {/* FAQ Section */}
-          <div className="bg-white  p-8  mb-16">
+          <div className="bg-white p-8 mb-16">
             <h2 className="text-3xl font-semibold text-amber-600 text-center mb-12">
               Frequently Asked Questions
             </h2>
@@ -276,7 +274,7 @@ const ContactUs = () => {
                     How long does it take to get a response?
                   </h3>
                   <p className="text-gray-600 text-sm">
-                    AI responses are instant. For personalized consultations, our experts typically respond within 24-48 hours.
+                    AI responses are instant. For personalized consultations, our experts typically respond within 24-48 hours during support hours.
                   </p>
                 </div>
               </div>
