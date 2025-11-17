@@ -175,7 +175,7 @@ const AboutUs = () => {
           </div>
 
           {/* CTA Section */}
-          <div className="text-center mt-12 mb-16">
+          <div className="text-center mt-12 pb-12">
             <button 
               onClick={() => navigate("/qna")}
               className="bg-amber-600 hover:bg-amber-700 text-white font-semibold py-3 px-8 rounded-full shadow-md transition-all duration-300 transform hover:scale-105 hover:shadow-lg"

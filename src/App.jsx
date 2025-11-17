@@ -7,6 +7,7 @@ function App() {
     <div>
       {/* App Routes */}
       <AppRoutes />
+      
     </div>
   );
 }

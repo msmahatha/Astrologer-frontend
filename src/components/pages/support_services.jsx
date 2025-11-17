@@ -110,7 +110,7 @@ const SupportServices = () => {
           </div>
 
           {/* Main Content */}
-          <div className="max-w-6xl mx-auto px-4 sm:px-8 mb-16">
+          <div className="max-w-6xl mx-auto px-4 sm:px-8 pb-12">
             
             {/* Service Categories Tabs */}
             <div className="rounded-lg p-8 border border-black mb-12">

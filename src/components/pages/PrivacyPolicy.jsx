@@ -10,7 +10,7 @@ const PrivacyPolicy = () => {
         <div className="w-full">
 
           {/* Header Section */}
-          <div className="text-center mb-16 pt-8">
+          <div className="text-center pt-8">
             <h2 className="text-base sm:text-lg font-semibold text-amber-600 mb-2">
               Astrolozee
             </h2>

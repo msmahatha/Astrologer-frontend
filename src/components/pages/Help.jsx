@@ -92,7 +92,7 @@ const Help = () => {
           </div>
 
           {/* Main Content */}
-          <div className="max-w-6xl mx-auto px-4 sm:px-8 mb-16">
+          <div className="max-w-6xl mx-auto px-4 sm:px-8 pb-12">
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
               
               {/* Left Column - Categories & Quick Help */}

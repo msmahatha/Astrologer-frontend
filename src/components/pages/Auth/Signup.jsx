@@ -128,7 +128,7 @@ export default function SignUpPage() {
     setError('');
 
     try {
-      const response = await fetch(`https://demoastrobackend.onrender.com/api/auth/signup`, {
+      const response = await fetch(`http://localhost:5001/api/auth/signup`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',

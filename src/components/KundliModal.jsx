@@ -44,7 +44,7 @@ const KundliModal = ({ isOpen = true, onClose = () => {}, data , loading }) => {
             />
             
             <div>
-              <p className="text-white font-bold">Astrologer</p>
+              <p className="text-white font-bold">Raman</p>
             </div>
           </div>
 
@@ -96,13 +96,33 @@ const KundliModal = ({ isOpen = true, onClose = () => {}, data , loading }) => {
               </div>
             </div>
 
-            <div className="bg-white rounded-xl p-4 shadow-sm border border-amber-50">
+            {/* <div className="bg-white rounded-xl p-4 shadow-sm border border-amber-50">
               <h4 className="text-sm text-gray-500 mb-2">Meta</h4>
               <div className="text-sm text-gray-700">
                 <div><span className="text-xs text-gray-400">Status</span> — <span className={`font-medium  text-green-600`}>success</span></div>
-                <div className="mt-2"><span className="text-xs text-gray-400">Created</span> — <span className="text-sm text-gray-700">{createdAtStr}</span></div>
+                <div className="mt-2"><span className="text-xs text-gray-400">Created</span> — <span className="text-sm text-gray-700">{createdAtStr || "today"}</span></div>
               </div>
-            </div>
+            </div> */}
+
+            <div className="bg-white rounded-xl p-4 shadow-sm border border-amber-50">
+  <h4 className="text-sm text-gray-500 mb-2">Meta</h4>
+  <div className="text-sm text-gray-700">
+    
+    <div>
+      <span className="text-xs text-gray-400">Status</span> — 
+      <span className="font-medium text-green-600">success</span>
+    </div>
+
+    <div className="mt-2">
+      <span className="text-xs text-gray-400">Created</span> — 
+      <span className="text-sm text-gray-700">
+        {createdAtStr && createdAtStr !== "Invalid Date" ? createdAtStr : "today"}
+      </span>
+    </div>
+
+  </div>
+</div>
+
           </section>
 
           {/* Planets & Houses */}

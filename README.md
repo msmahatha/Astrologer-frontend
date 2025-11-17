@@ -1,13 +1,87 @@
-# React + Vite
+# Astrolozee Frontend (React + Vite)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+React frontend application for Astrolozee - AI-powered astrology platform with personalized consultations and Kundli generation.
 
-Currently, two official plugins are available:
+## 🚀 Deployment to Netlify
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Prerequisites
+- GitHub account
+- Netlify account (free tier available)
+- Backend API deployed at: `https://astroger-be.onrender.com`
 
-## Expanding the ESLint configuration
+### Quick Deploy Steps
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-# Astrolozee-FE
+1. **Push to GitHub** (if not done already)
+   ```bash
+   git add -A
+   git commit -m "Prepare for Netlify deployment"
+   git push origin main
+   ```
+
+2. **Deploy on Netlify**
+   - Go to [Netlify Dashboard](https://app.netlify.com/)
+   - Click **"Add new site"** → **"Import an existing project"**
+   - Choose **"GitHub"** → Select **`msmahatha/Astrologer-frontend`**
+   - Netlify auto-detects settings from `netlify.toml`
+   - Add environment variables (see below)
+   - Click **"Deploy site"**
+
+3. **Environment Variables** (Add in Netlify dashboard)
+   ```
+   VITE_API_BASE_URL = https://astroger-be.onrender.com
+   VITE_GOOGLE_CLIENT_ID = 73941981725-cog2oe9hkdpgtgandpvr1998iu6pghea.apps.googleusercontent.com
+   ```
+
+4. **Update Backend CORS**
+   After deployment, add your Netlify URL to backend CORS in `Astrolozee-BE/index.js`
+
+## 🛠️ Local Development
+
+```bash
+npm install
+cp .env.example .env
+# Edit .env with your values
+npm run dev
+```
+
+## 📦 Tech Stack
+
+- React 19.1.1 + Vite 7.1.2
+- Tailwind CSS 4.1.13
+- Zustand (State Management)
+- React Router DOM 7.9.0
+- Axios + Google OAuth
+
+## 🎨 Key Features
+
+- ✅ AI astrology consultations with RAG
+- ✅ Personalized user name in greetings
+- ✅ Kundli generation
+- ✅ Google OAuth + Email authentication
+- ✅ Responsive design
+- ✅ Real-time chat with typing indicators
+
+## 🔗 API Endpoints Used
+
+- `POST /api/auth/login` - User login
+- `POST /api/auth/signup` - Registration
+- `POST /api/astro/ask` - AI consultation
+- `POST /api/kundli/generate` - Kundli generation
+
+## 🐛 Troubleshooting
+
+**Backend not responding:**
+- Verify VITE_API_BASE_URL points to deployed backend
+- Check backend CORS includes your Netlify URL
+
+**Build fails:**
+- Run `rm -rf node_modules && npm install`
+- Ensure Node.js version is 20.x
+
+**Env vars not working:**
+- Must prefix with `VITE_`
+- Restart dev server after changes
+
+## 📄 License
+
+ISC

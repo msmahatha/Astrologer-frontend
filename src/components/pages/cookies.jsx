@@ -23,7 +23,7 @@ const Cookies = () => {
           </div>
 
           {/* Main Content */}
-          <div className="max-w-6xl mx-auto px-4 sm:px-8 mb-16">
+          <div className="max-w-6xl mx-auto px-4 sm:px-8 pb-16">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
               
               {/* Left Column - Cookies & Third Party */}
@@ -240,7 +240,7 @@ const Cookies = () => {
             </div>
 
             {/* FAQ Section */}
-            <div className="p-8 mb-16 mt-12">
+            <div className="p-8  mt-12">
               <h2 className="text-3xl font-semibold text-amber-600 text-center mb-12">
                 Cookies & Rights FAQs
               </h2>

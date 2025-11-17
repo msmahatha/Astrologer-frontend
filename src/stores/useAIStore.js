@@ -184,7 +184,7 @@
 
 // import { create } from 'zustand';
 
-// const API_BASE = 'https://demoastrobackend.onrender.com';
+// const API_BASE = 'http://localhost:5000';
 
 // const useAIStore = create((set, get) => ({
 //   chats: [],
@@ -395,7 +395,7 @@
 
 import { create } from 'zustand';
 
-const API_BASE = 'https://demoastrobackend.onrender.com';
+const API_BASE = 'http://localhost:5001';
 
 const useAIStore = create((set, get) => ({
   chats: [],
@@ -403,6 +403,13 @@ const useAIStore = create((set, get) => ({
   error: null,
   userInfo: null,
   hasShownIntro: false,
+  // UI panels state: dynamic panels the UI can render (e.g. remedy panel)
+  uiPanels: {
+    remedy: false,
+    intro: false
+  },
+  // Panel payloads for dynamic rendering
+  panelData: {},
 
   // Fetch chat history from backend and normalize to { question, answer, remedy }
   fetchChats: async () => {
@@ -448,6 +455,24 @@ const useAIStore = create((set, get) => ({
     return { success: true };
   },
 
+  // Show a dynamic UI panel (name) with optional payload
+  showPanel: (name, data = {}) => {
+    set(state => ({
+      uiPanels: { ...state.uiPanels, [name]: true },
+      panelData: { ...state.panelData, [name]: data }
+    }));
+    return { success: true };
+  },
+
+  // Hide a dynamic UI panel
+  hidePanel: (name) => {
+    set(state => ({
+      uiPanels: { ...state.uiPanels, [name]: false },
+      panelData: { ...state.panelData, [name]: null }
+    }));
+    return { success: true };
+  },
+
   // Mark intro as shown
   setIntroShown: () => {
     set({ hasShownIntro: true });
@@ -463,7 +488,7 @@ const useAIStore = create((set, get) => ({
   sendMessage: async (messageData) => {
     set({ error: null });
 
-    const { question, context, ragWithContext, userInfo } = messageData;
+    const { question, context, ragWithContext, userInfo, user_name } = messageData;
 
     if (!question || question.trim() === '') {
       const msg = 'No question provided';
@@ -476,6 +501,7 @@ const useAIStore = create((set, get) => ({
       
       console.log('=== SEND MESSAGE START ===');
       console.log('Question:', question);
+      console.log('User Name:', user_name);
       console.log('hasShownIntro:', hasShownIntro);
       console.log('userInfo provided:', !!userInfo);
 
@@ -501,7 +527,8 @@ const useAIStore = create((set, get) => ({
           question: question, 
           context: context || '', 
           ragWithContext: ragWithContext || true,
-          userInfo: userInfo || null
+          userInfo: userInfo || null,
+          user_name: user_name || null
         })
       });
 
@@ -566,30 +593,41 @@ const useAIStore = create((set, get) => ({
               } // AI answer with remedy
             ];
             
+            // Also show remedy panel if backend included remedy
+            const showRemedy = payload.hasRemedy && payload.remedy;
             return { 
               chats: newChats, 
               isLoading: false,
-              hasShownIntro: true // Mark intro as shown
+              hasShownIntro: true, // Mark intro as shown
+              uiPanels: showRemedy ? { ...state.uiPanels, remedy: true } : state.uiPanels,
+              panelData: showRemedy ? { ...state.panelData, remedy: { question: question, remedy: payload.remedy } } : state.panelData
             };
           });
         }, 2000);
         
       } else {
-        console.log('PROCESSING: Subsequent message - update last message with answer and remedy');
+        console.log('PROCESSING: Subsequent message - update last message with answer');
+        console.log('Has remedy in response:', payload.hasRemedy);
         
         // For subsequent messages, just show answer after the initial delay
-        set(state => ({
-          chats: state.chats.map((chat, index) => 
-            index === state.chats.length - 1 
-              ? { 
-                  ...chat, 
-                  answer: payload.answer || payload.introMessage,
-                  remedy: payload.remedy || ''
-                }
-              : chat
-          ),
-          isLoading: false
-        }));
+        // Only include remedy if backend indicated it should be shown
+        set(state => {
+          const hasRem = payload.hasRemedy && payload.remedy;
+          return ({
+            chats: state.chats.map((chat, index) => 
+              index === state.chats.length - 1 
+                ? { 
+                    ...chat, 
+                    answer: payload.answer || payload.introMessage,
+                    remedy: hasRem ? payload.remedy : ''
+                  }
+                : chat
+            ),
+            isLoading: false,
+            uiPanels: hasRem ? { ...state.uiPanels, remedy: true } : state.uiPanels,
+            panelData: hasRem ? { ...state.panelData, remedy: { question: question, remedy: payload.remedy } } : state.panelData
+          });
+        });
       }
 
       return { success: true, data: payload };
