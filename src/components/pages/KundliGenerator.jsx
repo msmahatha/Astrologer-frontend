@@ -1539,8 +1539,8 @@ export default function KundliForm() {
   const searchTimeoutRef = useRef(null);
 
   // Base URL for your Node.js backend
-  const API_BASE_URL = window.location.hostname === 'localhost' 
-    ? 'http://localhost:5001/api' 
+  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL 
+    ? `${import.meta.env.VITE_API_BASE_URL}/api`
     : 'http://localhost:5001/api';
 
   // Close dropdown when clicking outside

@@ -4362,9 +4362,9 @@ const YEARS = Array.from({ length: currentYear - 1900 + 1 }, (_, i) => (currentY
 const DAYS = Array.from({ length: 31 }, (_, i) => (i + 1).toString().padStart(2, '0'));
 
 // Use absolute URL for production, relative for development
-const API_BASE_URL = window.location.hostname === 'localhost' 
-  ? 'http://localhost:5001/api' 
-  : 'https://demoastrobackend.onrender.com/api';
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL
+  ? `${import.meta.env.VITE_API_BASE_URL}/api`
+  : 'http://localhost:5001/api';
 
 const QNA = () => {
   const { 
