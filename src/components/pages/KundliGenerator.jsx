@@ -1890,12 +1890,15 @@ export default function KundliForm() {
               <div className="flex items-center border border-yellow-400 rounded-md px-3 py-2">
                 <Clock className="text-yellow-600 w-5 h-5 mr-2" />
                 <input
-                  type="time"
+                  type="text"
+                  placeholder="HH:MM:SS or HH:MM"
                   value={formData.birth_time}
                   onChange={(e) =>
                     setFormData({ ...formData, birth_time: e.target.value })
                   }
-                  className="bg-transparent outline-none flex-1 text-black text-sm sm:text-base"
+                  pattern="^([0-1][0-9]|2[0-3]):([0-5][0-9])(:([0-5][0-9]))?$"
+                  title="Enter time in HH:MM:SS (e.g., 09:45:30) or HH:MM format (e.g., 09:45)"
+                  className="bg-transparent outline-none flex-1 text-black placeholder:text-yellow-600 text-sm sm:text-base"
                   required
                 />
               </div>
