@@ -23,7 +23,8 @@ const useAuthStore = create((set) => ({
 checkAuth: async () => {
   try {
     console.log("Starting auth check...");
-    const response = await fetch(`http://localhost:5001/api/auth/get-user`, {
+    const API_BASE = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5001';
+    const response = await fetch(`${API_BASE}/api/auth/get-user`, {
       method: 'GET',
       credentials: 'include',
       headers: {
