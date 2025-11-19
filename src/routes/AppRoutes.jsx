@@ -2,7 +2,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LandingPage from "./../components/pages/LandingPage";
 import Login from "./../components/pages/Auth/Login";
 import Signup from "./../components/pages/Auth/Signup";
-import KundliGenerator from "./../components/pages/KundliGenerator";
 import QnA from "../components/pages/QnA";
 import Remedies from "./../components/pages/Remedies";
 import CompleteProfilePage from "../components/pages/Auth/CompleteProfilePage";
@@ -38,11 +37,6 @@ export default function AppRoutes() {
           <ProtectedRoute>
           <LandingPage />
           </ProtectedRoute>
-          } />
-        <Route path="/kundli" element={
-           <ProtectedRoute>
-          <KundliGenerator />
-           </ProtectedRoute>
           } />
         <Route path="/qna" element={
           <ProtectedRoute>
