@@ -4385,6 +4385,8 @@ const QNA = () => {
     currentLocation: "",
     selectedLocation: "",
     selectedCategory: "",
+    religion: "",
+    language: "",
   });
   
   const [question, setQuestion] = useState("");
@@ -4998,6 +5000,30 @@ const handleQuestionSubmit = async (userQuestion = null) => {
                 )}
               </div>
 </div>
+              </div>
+
+              {/* Religion and Language Fields */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <input
+                  type="text"
+                  placeholder="Religion"
+                  value={localUserInfo.religion}
+                  onChange={(e) =>
+                    setLocalUserInfo({ ...localUserInfo, religion: e.target.value })
+                  }
+                  className="w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-amber-400"
+                  required
+                />
+                <input
+                  type="text"
+                  placeholder="Language"
+                  value={localUserInfo.language}
+                  onChange={(e) =>
+                    setLocalUserInfo({ ...localUserInfo, language: e.target.value })
+                  }
+                  className="w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-amber-400"
+                  required
+                />
               </div>
 
               {/* Category */}
