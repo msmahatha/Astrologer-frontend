@@ -30,7 +30,11 @@ export default function Header() {
             alt="logo"
             className="w-10 h-10 sm:w-14 sm:h-14"
           />
+          <h2 className="text-xl font-bold text-amber-600 mb-2">
+            Astrolozee
+          </h2>
         </Link>
+        
 
         {/* Desktop Menu */}
         <ul className="hidden md:flex items-center gap-8 text-[#14213d] font-medium text-sm lg:text-base">
