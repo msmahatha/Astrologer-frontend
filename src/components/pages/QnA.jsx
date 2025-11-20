@@ -754,28 +754,37 @@ const handleQuestionSubmit = async (userQuestion = null) => {
               </div>
 
               {/* Religion and Language Fields */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <input
-                  type="text"
-                  placeholder="Religion"
-                  value={localUserInfo.religion}
-                  onChange={(e) =>
-                    setLocalUserInfo({ ...localUserInfo, religion: e.target.value })
-                  }
-                  className="w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-amber-400"
-                  required
-                />
-                <input
-                  type="text"
-                  placeholder="Language"
-                  value={localUserInfo.language}
-                  onChange={(e) =>
-                    setLocalUserInfo({ ...localUserInfo, language: e.target.value })
-                  }
-                  className="w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-amber-400"
-                  required
-                />
-              </div>
+             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+  {/* Religion */}
+  <div className="flex flex-col">
+    <p className="text-sm font-medium mb-1">Religion</p>
+    <input
+      type="text"
+      placeholder="Religion"
+      value={localUserInfo.religion}
+      onChange={(e) =>
+        setLocalUserInfo({ ...localUserInfo, religion: e.target.value })
+      }
+      className="w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-amber-400"
+      required
+    />
+  </div>
+
+  {/* Language */}
+  <div className="flex flex-col">
+    <p className="text-sm font-medium mb-1">Language</p>
+    <input
+      type="text"
+      placeholder="Language"
+      value={localUserInfo.language}
+      onChange={(e) =>
+        setLocalUserInfo({ ...localUserInfo, language: e.target.value })
+      }
+      className="w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-amber-400"
+      required
+    />
+  </div>
+</div>
 
               {/* Category */}
               <select
