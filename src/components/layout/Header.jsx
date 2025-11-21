@@ -16,7 +16,7 @@ export default function Header() {
 
   return (
     <>
-      <nav className="relative flex items-center justify-between px-6 py-3 bg-[#F9F9EF] -blur-xl border border-black z-[100]">
+      <nav className="relative flex items-center justify-between px-6 py-3 bg-[#F9F9EF] -blur-xl border border-black ">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2">
           {/* <img
@@ -28,7 +28,7 @@ export default function Header() {
           <img
             src="./logo.svg"
             alt="logo"
-            className="w-10 h-10 sm:w-14 sm:h-14"
+            className="w-10 h-10 sm:w-14 sm:h-14 drop-shadow-[0_0_10px_#000]  border-[#E6E6DD] "
           />
           <h2 className="text-xl font-bold text-amber-600 mb-2">
             Astrolozee
