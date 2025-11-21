@@ -90,9 +90,9 @@ const QNA = () => {
   const dropdownRef = useRef(null);
   const searchTimeoutRef = useRef(null);
 
-  useEffect(() => {
-    fetchChats();
-  }, []);
+  // useEffect(() => {
+  //   fetchChats();
+  // }, []);
 
   // Remove consecutive duplicate assistant messages (same answer text)
   const dedupedChats = useMemo(() => {
