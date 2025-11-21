@@ -90,9 +90,9 @@ const QNA = () => {
   const dropdownRef = useRef(null);
   const searchTimeoutRef = useRef(null);
 
-  useEffect(() => {
-    fetchChats();
-  }, []);
+  // useEffect(() => {
+  //   fetchChats();
+  // }, []);
 
   // Remove consecutive duplicate assistant messages (same answer text)
   const dedupedChats = useMemo(() => {
@@ -929,7 +929,7 @@ const handleQuestionSubmit = async (userQuestion = null) => {
                 onChange={(e) => setQuestion(e.target.value)}
                 placeholder="Ask your question..."
                 className="flex-1 p-3 pl-8 pb-10 bg-[#f5e9d6] rounded-md focus:outline-none focus:ring-2 focus:ring-amber-400"
-                onKeyPress={(e) => {
+                onKeyDown={(e) => {
                   if (e.key === 'Enter' && !e.shiftKey) {
                     e.preventDefault();
                     handleQuestionSubmit();
@@ -937,7 +937,7 @@ const handleQuestionSubmit = async (userQuestion = null) => {
                 }}
               />
               <button
-                onClick={handleQuestionSubmit}
+                onClick={(e) => { e.preventDefault(); handleQuestionSubmit(); }}
                 disabled={isLoading || !question.trim()}
                 className="bg-amber-500 text-white px-4 py-3 rounded-md hover:bg-amber-600 transition disabled:opacity-50 flex items-center justify-center"
               >
