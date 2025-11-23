@@ -26,11 +26,11 @@ export default function Header() {
           /> */}
 
           <img
-            src="./logo.svg"
+            src="./lloogo.svg"
             alt="logo"
-            className="w-10 h-10 sm:w-14 sm:h-14 drop-shadow-[0_0_10px_#000]  border-[#E6E6DD] "
+            className="w-14 h-14 border-[#E6E6DD] "
           />
-          <h2 className="text-xl font-bold text-amber-600 mb-2">
+          <h2 className="text-4xl font-bold text-amber-600 mb-2">
             Astrolozee
           </h2>
         </Link>
