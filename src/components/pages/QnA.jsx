@@ -820,8 +820,11 @@ const handleQuestionSubmit = async (userQuestion = null) => {
                 className="w-10 h-10 rounded-full object-cover"
               />
               <div className="flex flex-col leading-tight">
-                <span className="text-white md:text-lg text-sm font-medium">
+                {/* <span className="text-white md:text-lg text-sm font-medium">
                 Rohit
+                </span> */}
+                 <span className="text-white md:text-lg text-sm font-medium">
+               Digvesh Dube
                 </span>
                 <span className="text-white text-xs font-medium">
                   🟢 online
