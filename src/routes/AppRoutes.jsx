@@ -16,6 +16,8 @@ import Cookies from '../components/pages/cookies';
 import Help from "../components/pages/Help";
 import Supportervices from '../components/pages/support_services';
 import Blog from "../components/pages/blog";
+import BlogPost from "../components/pages/blogpage";
+
 export default function AppRoutes() {
   return (
     <BrowserRouter>
@@ -33,7 +35,9 @@ export default function AppRoutes() {
         <Route path="/cookies" element={<Cookies/>}/>
         <Route path="/help" element={<Help/>}/>
         <Route path="/support" element={<Supportervices/>}/>
+    
         <Route path="/blog" element={<Blog/>}/>
+         <Route path="/blog/:id" element={<BlogPost />} />
         </Route>
         <Route path="/" element={
           <ProtectedRoute>
