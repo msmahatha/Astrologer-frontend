@@ -15,6 +15,7 @@ import Privacy from "../components/pages/Privacy";
 import Cookies from '../components/pages/cookies';
 import Help from "../components/pages/Help";
 import Supportervices from '../components/pages/support_services';
+import Blog from "../components/pages/blog";
 export default function AppRoutes() {
   return (
     <BrowserRouter>
@@ -32,6 +33,7 @@ export default function AppRoutes() {
         <Route path="/cookies" element={<Cookies/>}/>
         <Route path="/help" element={<Help/>}/>
         <Route path="/support" element={<Supportervices/>}/>
+        <Route path="/blog" element={<Blog/>}/>
         </Route>
         <Route path="/" element={
           <ProtectedRoute>

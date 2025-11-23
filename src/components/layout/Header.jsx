@@ -39,8 +39,10 @@ export default function Header() {
         {/* Desktop Menu */}
         <ul className="hidden md:flex items-center gap-8 text-[#14213d] font-medium text-sm lg:text-base">
           <li><Link to="/" className="hover:text-[#fca311] transition-colors duration-200">Home</Link></li>
+          <li><Link to="/blog" className="hover:text-[#fca311] transition-colors duration-200">Blog</Link></li>
           <li><Link to="/qna" className="hover:text-[#fca311] transition-colors duration-200">Chat with Astrologer</Link></li>
           <li><Link to="/remedies" className="hover:text-[#fca311] transition-colors duration-200">Remedies</Link></li>
+          
           <li>
             {!isAuthenticated ? (
               <Link
