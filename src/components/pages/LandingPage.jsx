@@ -180,6 +180,7 @@ import Footer from "../layout/Footer";
 import MembershipPlans from "./Membership";
 import Header from "../layout/Header";
 import { useNavigate } from "react-router-dom";
+import DailyHoroscopeSection from "./DailyHoroscopeSection";
 
 export default function LandingPage() {
   const navigate = useNavigate();
@@ -299,106 +300,7 @@ export default function LandingPage() {
       <MembershipPlans />
 
 
-      {/* Astrology Signs */}
-      <section className="px-6 sm:px-10 py-16 bg-[#F9F9EF]">
-        <div className="max-w-6xl mx-auto">
-          {/* Header */}
-          <div className="flex flex-col sm:flex-row justify-between items-start gap-6 mb-12 text-center sm:text-left">
-            <h2 className="text-3xl sm:text-4xl font-semibold max-w-md text-gray-800">
-              Understanding the Science of Astrology
-            </h2>
-            <p className="text-gray-700 text-sm sm:text-base max-w-sm leading-relaxed">
-              Explore how each zodiac sign reflects a unique balance of cosmic energy — guiding personality, emotions, and destiny.
-            </p>
-          </div>
-
-          {/* Zodiac Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-            {/* Left Column */}
-            <div className="space-y-10 relative md:mt-24">
-              {/* Aries */}
-              <div className="flex flex-col sm:flex-row items-center sm:items-start sm:space-x-6 space-y-4 sm:space-y-0">
-                <img src="land13.svg" alt="Aries Zodiac Sign" className="h-40 w-40 object-cover" />
-                <div className="text-center md:text-left">
-                  <h3 className="text-xl font-bold text-amber-700">Aries</h3>
-                  <p className="text-sm text-gray-600 leading-relaxed">
-                    Bold and dynamic, Aries is driven by passion and fearless ambition.
-                  </p>
-                </div>
-              </div>
-
-              {/* Taurus */}
-              <div className="flex flex-col sm:flex-row items-center sm:items-start sm:space-x-6 space-y-4 sm:space-y-0">
-                <img src="land11.svg" alt="Taurus Zodiac Sign" className="h-40 w-40 object-cover" />
-                <div className="text-center md:text-left">
-                  <h3 className="text-xl font-bold text-amber-700">Taurus</h3>
-                  <p className="text-sm text-gray-600 leading-relaxed">
-                    Grounded and patient, Taurus values comfort, beauty, and stability.
-                  </p>
-                </div>
-              </div>
-
-              {/* Gemini */}
-              <div className="flex flex-col sm:flex-row items-center sm:items-start sm:space-x-6 space-y-4 sm:space-y-0">
-                <img src="land9.svg" alt="Gemini Zodiac Sign" className="h-40 w-40 object-cover" />
-                <div className="text-center md:text-left">
-                  <h3 className="text-xl font-bold text-amber-700">Gemini</h3>
-                  <p className="text-sm text-gray-600 leading-relaxed">
-                    Curious and expressive, Gemini loves learning, talking, and connecting.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Right Column */}
-            <div className="space-y-10">
-              {/* Cancer */}
-              <div className="flex flex-col sm:flex-row items-center sm:items-start sm:space-x-6 space-y-4 sm:space-y-0 pt-24">
-                <img src="land7.svg" alt="Cancer Zodiac Sign" className="h-40 w-40 object-cover" />
-                <div className="text-center md:text-left">
-                  <h3 className="text-xl font-bold text-amber-700">Cancer</h3>
-                  <p className="text-sm text-gray-600 leading-relaxed">
-                    Emotional and nurturing, Cancer cherishes family and home deeply.
-                  </p>
-                </div>
-              </div>
-
-              {/* Leo */}
-              <div className="flex flex-col sm:flex-row items-center sm:items-start sm:space-x-6 space-y-4 sm:space-y-0">
-                <img src="land4.svg" alt="Leo Zodiac Sign" className="h-40 w-40 object-cover" />
-                <div className="text-center md:text-left">
-                  <h3 className="text-xl font-bold text-amber-700">Leo</h3>
-                  <p className="text-sm text-gray-600 leading-relaxed">
-                    Radiant and confident, Leo shines as a natural leader and creator.
-                  </p>
-                </div>
-              </div>
-
-              {/* Virgo */}
-              <div className="flex flex-col sm:flex-row items-center sm:items-start sm:space-x-6 space-y-4 sm:space-y-0">
-                <img src="land8.svg" alt="Virgo Zodiac Sign" className="h-40 w-40 object-cover" />
-                <div className="text-center md:text-left">
-                  <h3 className="text-xl font-bold text-amber-700">Virgo</h3>
-                  <p className="text-sm text-gray-600 leading-relaxed">
-                    Analytical and practical, Virgo seeks perfection in every detail.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* CTA Button */}
-          <div className="flex justify-center mt-12">
-            <a
-              href="#zodiac"
-              className="bg-amber-600 hover:bg-amber-700 text-white font-semibold px-8 py-3 rounded-full shadow-md transition-transform duration-300 hover:-translate-y-0.5 hover:shadow-lg"
-            >
-              Explore All Zodiac Signs
-            </a>
-          </div>
-        </div>
-      </section>
-
+<DailyHoroscopeSection/>
 
 
       <Footer />
